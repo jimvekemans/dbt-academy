@@ -1,0 +1,13 @@
+dbt_academy:
+  target: dev
+  outputs:
+    dev:
+      database: "{{ env_var('SINGLESTORE_DB') }}"
+      host: "{{ env_var('SINGLESTORE_HOST') }}"
+      password: "{{ env_var('SINGLESTORE_PASS') }}"
+      port: 3306
+      schema: "{{ env_var('SINGLESTORE_DB', '') }}"
+      threads: 1
+      type: singlestore
+      user: "{{ env_var('SINGLESTORE_USER') }}"
+      ssl: false

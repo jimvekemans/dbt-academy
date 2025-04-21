@@ -1,0 +1,24 @@
+# ╭──────────────────────────╮
+# │ SHARED DEPENDENDENCIES   │
+# ╰──────────────────────────╯
+black==25.*
+dbt-bouncer==1.*
+dbt-core==1.*
+jinja2==3.*
+pandas==2.*
+python-dotenv==1.*
+pyyaml==6.*
+requests==2.*
+rich==13.*
+sqlalchemy==2.*
+
+# ╭───────────────────────╮
+# │  SINGLESTORE SUPPORT  │
+# ╰───────────────────────╯
+dbt-singlestore==1.*
+mysqlclient==2.*
+
+# ╭───────────────────────────╮
+# │ HASHICORP VAULT SUPPORT   │
+# ╰───────────────────────────╯
+hvac==0.*

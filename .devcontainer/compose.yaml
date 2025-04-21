@@ -1,0 +1,28 @@
+services:
+  dbt:
+    build:
+      context: python
+      dockerfile: Dockerfile
+    entrypoint: ["tail", "-f", "/dev/null"]
+    env_file:
+      - python/.env
+    depends_on:
+      - singlestore
+    networks:
+      - devcontainer-network
+
+  singlestore:
+    image: ghcr.io/singlestore-labs/singlestoredb-dev:latest
+    environment:
+      ROOT_PASSWORD: "singlestore"
+    ports:
+      - "3306:3306"
+      - "9080:8080"
+      - "9000:9000"
+    networks:
+      - devcontainer-network
+
+networks:
+  devcontainer-network:
+  backend:
+    driver: bridge

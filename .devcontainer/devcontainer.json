@@ -1,0 +1,42 @@
+{
+	// Reference: https://containers.dev/implementors/json_reference/
+	"name": "${localWorkspaceFolderBasename} dev container",
+
+	"dockerComposeFile": "compose.yaml",
+    "service": "dbt",
+	"runServices": ["dbt", "singlestore"],
+
+	"workspaceFolder": "/workspace",
+    "remoteUser": "vscode",
+
+	"mounts": [
+		"source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind,consistency=cached",
+		"source=${env:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+	],
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"aaron-bond.better-comments",
+				"adpyke.codesnap",
+				"christian-kohler.path-intellisense",
+				"eliverlara.andromeda",
+				"innoverio.vscode-dbt-power-user",
+				"kevinrose.vsc-python-indent",
+				"ms-python.black-formatter",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"oderwat.indent-rainbow",
+				"phplasma.csv-to-table",
+				"pkief.material-icon-theme",
+				"pkief.material-product-icons",
+				"redhat.vscode-yaml",
+				"visualstudioexptteam.vscodeintellicode",
+				"zainchen.json"
+			]
+		}
+	},
+
+	"postCreateCommand": "./.devcontainer/scripts/post_create.sh ${containerWorkspaceFolder}"
+
+}
