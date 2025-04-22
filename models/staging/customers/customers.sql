@@ -1,6 +1,4 @@
-{{ config(materialized = 'view') }}
-
-{% set raw_customers = source('dbt_academy', 'raw_customers') %}
+{% set raw_customers = source('landing', 'raw_customers') %}
 
 with customers as (
     select

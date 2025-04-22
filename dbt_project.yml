@@ -56,3 +56,6 @@ quoting:
   database: true
   schema: true
   identifier: true
+
+flags:
+  use_colors: False

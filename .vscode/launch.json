@@ -1,0 +1,44 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "dbt",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "args": [
+                "debug",
+            ],
+            "justMyCode": false
+        },
+        {
+            "name": "dbt wrapper",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/python/dbt_wrapper.py",
+            "args": [
+                "run",
+            ],
+            "env": {
+                "DBT_DEPLOY_TARGET": "LDV"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "generate sources",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/python/generate_sources.py",
+            "args": [
+                "--database", "edw_dv_rdv"
+            ],
+            "env": {
+                "DBT_DEPLOY_TARGET": "LDV"
+            },
+            "justMyCode": true
+        },
+    ]
+}
