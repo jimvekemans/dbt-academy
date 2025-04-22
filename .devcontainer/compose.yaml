@@ -13,6 +13,7 @@ services:
 
   singlestore:
     image: ghcr.io/singlestore-labs/singlestoredb-dev:latest
+    platform: linux/amd64
     environment:
       ROOT_PASSWORD: "singlestore"
     ports:
